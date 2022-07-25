@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GoogleTravelScraping_ByHotel" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="542,1506.66666666667" sap2010:WorkflowViewState.IdRef="GoogleTravelScraping_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GoogleTravelScraping_ByHotel" this:GoogleTravelScraping_ByHotel.a_url="https://10fastfingers.com/text/400166-SAI-COMPUTER-TYPING-INSTITUTE-GULABARA-CHHINDWARA-M-P-CPCT-ADMISSION-OPEN-MOB-NO-9098909565-Director-By-Lucky-Shrivatr" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="a_url" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>844,1608.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GoogleTravelScraping_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="39">
       <x:String>System.Activities</x:String>
@@ -86,17 +94,9 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Beat 10fastfinger.com" sap:VirtualizedContainerService.HintSize="552,1442" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Beat 10fastfinger.com" sap:VirtualizedContainerService.HintSize="552,1544" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="v_browser" />
-      <Variable x:TypeArguments="x:String" Default="https://www.google.com/travel/" Name="v_GUrl" />
-      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="v_ExtractDataTable" />
-      <Variable x:TypeArguments="x:String" Name="v_url" />
-      <Variable x:TypeArguments="x:String" Default="2021/10/22" Name="v_CheckIn" />
-      <Variable x:TypeArguments="x:String" Default="2021/10/23" Name="v_CheckOut" />
-      <Variable x:TypeArguments="s:DateTime" Default="[Date.Now]" Name="v_Now" />
-      <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="v_LanguageItems" />
-      <Variable x:TypeArguments="ui:UiElement" Name="v_selecUIElement" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -112,7 +112,15 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:KillProcess>
-    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" BrowserType="Edge" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="510,1174.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" NewSession="True" Private="False" UiBrowser="[v_browser]" Url="https://10fastfingers.com/text/400166-SAI-COMPUTER-TYPING-INSTITUTE-GULABARA-CHHINDWARA-M-P-CPCT-ADMISSION-OPEN-MOB-NO-9098909565-Director-By-Lucky-Shrivatr">
+    <Assign sap:VirtualizedContainerService.HintSize="510,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[a_url]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(a_url is Nothing, "https://10fastfingers.com/text/400166-SAI-COMPUTER-TYPING-INSTITUTE-GULABARA-CHHINDWARA-M-P-CPCT-ADMISSION-OPEN-MOB-NO-9098909565-Director-By-Lucky-Shrivatr", a_url)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" BrowserType="Edge" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="510,1174.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" NewSession="True" Private="False" UiBrowser="[v_browser]" Url="[a_url]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -156,7 +164,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:FindChildren>
-            <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,668" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[v_UIWord]">
+            <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,668" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[v_UIWord]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="ui:UiElement">
                   <ActivityAction.Argument>
