@@ -1,7 +1,7 @@
 {
   "name": "Example Click",
   "description": "Blank Process",
-  "main": "Seq_Browser.xaml",
+  "main": "Seq_10fastfingerdotcom.xaml",
   "dependencies": {
     "Microsoft.Activities.Extensions": "[2.0.6.9]",
     "UiPath.Excel.Activities": "[2.12.3]",
@@ -46,14 +46,14 @@
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
-      "filePath": "Main.xaml",
-      "uniqueId": "3852fac0-9865-481a-abc4-cdd761bfba39",
+      "filePath": "Seq_10fastfingerdotcom.xaml",
+      "uniqueId": "6b23ccc4-6bb4-4257-a0f5-f6bf1aa83120",
       "input": [],
       "output": []
     },
     {
-      "filePath": "Seq_Browser.xaml",
-      "uniqueId": "fb775e2d-7580-4b06-af55-cb2ed7cd1392",
+      "filePath": "Seg_TraCuuSBD_THPT.xaml",
+      "uniqueId": "adedb771-8ea3-4208-8434-61c722258a88",
       "input": [],
       "output": []
     }
